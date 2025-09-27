@@ -4,7 +4,7 @@ import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
 class ApiService {
   final Dio _dio;
-  final String baseUrl = 'https://vcare.integration25.com/api';
+  final String baseUrl = 'https://ecommerce.routemisr.com/api/v1';
 
   ApiService(this._dio) {
     addInterceptors();
@@ -28,8 +28,7 @@ class ApiService {
         onRequest: (options, handler) async {
           final token = await Prefs.getToken();
           if (token != null && token.isNotEmpty) {
-            options.headers['Authorization'] = 'Bearer $token';
-            options.headers['Accept'] = 'application/json';
+            options.headers['token'] = token;
           }
           return handler.next(options);
         },
@@ -37,25 +36,20 @@ class ApiService {
     );
   }
 
-  Future<dynamic> get({required String endPoint}) async {
+  Future<Map<String, dynamic>> get({required String endPoint}) async {
     final Response response = await _dio.get('$baseUrl$endPoint');
     return response.data;
   }
 
-  Future<dynamic> post({
+  Future<Map<String, dynamic>> post({
     required String endPoint,
-    dynamic data,
-    Options? options,
+    required Map<String, dynamic> data,
   }) async {
-    final Response response = await _dio.post(
-      '$baseUrl$endPoint',
-      data: data,
-      options: options,
-    );
+    final Response response = await _dio.post('$baseUrl$endPoint', data: data);
     return response.data;
   }
 
-  Future<dynamic> put({
+  Future<Map<String, dynamic>> put({
     required String endPoint,
     required Map<String, dynamic> data,
   }) async {
@@ -63,7 +57,7 @@ class ApiService {
     return response.data;
   }
 
-  Future<dynamic> delete({required String endPoint}) async {
+  Future<Map<String, dynamic>> delete({required String endPoint}) async {
     final Response response = await _dio.delete('$baseUrl$endPoint');
     return response.data;
   }
