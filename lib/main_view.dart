@@ -1,7 +1,7 @@
 import 'package:clot/core/utils/app_assets.dart';
 import 'package:clot/core/utils/app_colors.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class MainView extends StatefulWidget {
   const MainView({super.key});
@@ -33,28 +33,58 @@ class MainViewState extends State<MainView> {
           });
         },
         type: BottomNavigationBarType.fixed,
+        showSelectedLabels: false,
+        showUnselectedLabels: false,
         backgroundColor: AppColors.dark,
-        selectedItemColor: AppColors.primary,
-        unselectedItemColor: AppColors.white.withValues(alpha: 0.5),
         items: [
           BottomNavigationBarItem(
-            icon: SvgPicture.asset(AppAssets.svgsIconHome),
+            icon: Image.asset(
+              AppAssets.imagesIconHome,
+              width: 40.w,
+              color: _currentIndex == 0
+                  ? AppColors.primary
+                  : AppColors.white.withValues(alpha: 0.5),
+            ),
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: SvgPicture.asset(AppAssets.svgsIconSerch),
+            icon: Image.asset(
+              AppAssets.imagesIconSearch,
+              width: 20.w,
+              color: _currentIndex == 1
+                  ? AppColors.primary.withValues(alpha: 0.65)
+                  : AppColors.white.withValues(alpha: 0.2),
+            ),
             label: 'Search',
           ),
           BottomNavigationBarItem(
-            icon: SvgPicture.asset(AppAssets.svgsIconFav),
+            icon: Image.asset(
+              AppAssets.imagesIconFav,
+              width: 24.w,
+              color: _currentIndex == 2
+                  ? AppColors.primary.withValues(alpha: 0.65)
+                  : AppColors.white.withValues(alpha: 0.2),
+            ),
             label: 'Favorites',
           ),
           BottomNavigationBarItem(
-            icon: SvgPicture.asset(AppAssets.svgsIconOrder),
+            icon: Image.asset(
+              AppAssets.imagesIconOrders,
+              width: 40.w,
+              color: _currentIndex == 3
+                  ? AppColors.primary
+                  : AppColors.white.withValues(alpha: 0.5),
+            ),
             label: 'Orders',
           ),
           BottomNavigationBarItem(
-            icon: SvgPicture.asset(AppAssets.svgsIconProfile),
+            icon: Image.asset(
+              AppAssets.imagesIconProfile,
+              width: 40.w,
+              color: _currentIndex == 4
+                  ? AppColors.primary
+                  : AppColors.white.withValues(alpha: 0.5),
+            ),
             label: 'Profile',
           ),
         ],

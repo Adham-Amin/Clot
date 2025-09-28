@@ -35,7 +35,14 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
       style: AppStyles.textRegular16.copyWith(color: AppColors.white),
       controller: widget.controller,
       onSaved: widget.onSaved,
-      validator: widget.validator,
+      validator:
+          widget.validator ??
+          (data) {
+            if (data!.isEmpty) {
+              return '${widget.hintText} is required';
+            }
+            return null;
+          },
       obscureText: widget.isPassword ? isObsecure : false,
       cursorColor: AppColors.primary,
       decoration: InputDecoration(

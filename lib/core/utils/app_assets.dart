@@ -10,6 +10,26 @@ class AppAssets {
   /// assets/images/code_to_email.png
   static const String imagesCodeToEmail = "assets/images/code_to_email.png";
 
+  /// Assets for imagesIconFav
+  /// assets/images/icon_fav.png
+  static const String imagesIconFav = "assets/images/icon_fav.png";
+
+  /// Assets for imagesIconHome
+  /// assets/images/icon_home.png
+  static const String imagesIconHome = "assets/images/icon_home.png";
+
+  /// Assets for imagesIconOrders
+  /// assets/images/icon_orders.png
+  static const String imagesIconOrders = "assets/images/icon_orders.png";
+
+  /// Assets for imagesIconProfile
+  /// assets/images/icon_profile.png
+  static const String imagesIconProfile = "assets/images/icon_profile.png";
+
+  /// Assets for imagesIconSearch
+  /// assets/images/icon_search.png
+  static const String imagesIconSearch = "assets/images/icon_search.png";
+
   /// Assets for imagesSplash
   /// assets/images/splash.png
   static const String imagesSplash = "assets/images/splash.png";

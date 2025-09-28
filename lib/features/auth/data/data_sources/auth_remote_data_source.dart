@@ -58,7 +58,7 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
     required String email,
     required String newPassword,
   }) async {
-    var response = await apiService.post(
+    var response = await apiService.put(
       endPoint: '/auth/resetPassword',
       data: {'email': email, 'newPassword': newPassword},
     );
