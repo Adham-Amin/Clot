@@ -1,3 +1,4 @@
+import 'package:clot/core/routes/app_routes.dart';
 import 'package:clot/core/utils/app_colors.dart';
 import 'package:clot/core/utils/app_styles.dart';
 import 'package:clot/core/widgets/custom_button.dart';
@@ -18,7 +19,8 @@ class SignInForm extends StatelessWidget {
         Align(
           alignment: AlignmentGeometry.centerRight,
           child: TextButton(
-            onPressed: () {},
+            onPressed: () =>
+                Navigator.pushNamed(context, AppRoutes.forgetPasswordView),
             child: Text(
               'Forgot password?',
               style: AppStyles.textRegular12.copyWith(color: AppColors.primary),

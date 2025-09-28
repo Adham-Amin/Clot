@@ -6,9 +6,9 @@ class AppAssets {
   /// assets/images/avatar.png
   static const String imagesAvatar = "assets/images/avatar.png";
 
-  /// Assets for imagesIconBack
-  /// assets/images/icon_back.png
-  static const String imagesIconBack = "assets/images/icon_back.png";
+  /// Assets for imagesCodeToEmail
+  /// assets/images/code_to_email.png
+  static const String imagesCodeToEmail = "assets/images/code_to_email.png";
 
   /// Assets for imagesSplash
   /// assets/images/splash.png
@@ -21,10 +21,6 @@ class AppAssets {
   /// Assets for svgsArrowBack
   /// assets/svgs/arrow_back.svg
   static const String svgsArrowBack = "assets/svgs/arrow_back.svg";
-
-  /// Assets for svgsCodeToEmail
-  /// assets/svgs/code_to_email.svg
-  static const String svgsCodeToEmail = "assets/svgs/code_to_email.svg";
 
   /// Assets for svgsIconFav
   /// assets/svgs/icon_fav.svg
