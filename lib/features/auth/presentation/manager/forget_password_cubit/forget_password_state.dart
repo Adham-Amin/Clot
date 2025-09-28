@@ -11,6 +11,16 @@ final class ForgetPasswordSuccess extends ForgetPasswordState {
   ForgetPasswordSuccess({required this.message});
 }
 
+final class VerifyCodeSuccess extends ForgetPasswordState {
+  final VerifyResetCodeResponse message;
+  VerifyCodeSuccess({required this.message});
+}
+
+final class ResetPasswordSuccess extends ForgetPasswordState {
+  final ResetPasswordResponse message;
+  ResetPasswordSuccess({required this.message});
+}
+
 final class ForgetPasswordError extends ForgetPasswordState {
   final String message;
   ForgetPasswordError({required this.message});
