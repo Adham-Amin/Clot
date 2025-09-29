@@ -6,6 +6,10 @@ abstract class AppStyles {
     fontSize: 32.sp,
     fontWeight: FontWeight.w700,
   );
+  static TextStyle textBold16 = TextStyle(
+    fontSize: 16.sp,
+    fontWeight: FontWeight.w700,
+  );
   static TextStyle textBold12 = TextStyle(
     fontSize: 12.sp,
     fontWeight: FontWeight.w700,

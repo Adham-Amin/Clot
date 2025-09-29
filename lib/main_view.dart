@@ -1,5 +1,6 @@
 import 'package:clot/core/utils/app_assets.dart';
 import 'package:clot/core/utils/app_colors.dart';
+import 'package:clot/features/home/presentation/views/home_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -14,7 +15,7 @@ class MainViewState extends State<MainView> {
   int _currentIndex = 0;
 
   final List<Widget> _pages = const [
-    Center(child: Text('Home')),
+    HomeView(),
     Center(child: Text('Search')),
     Center(child: Text('Favorites')),
     Center(child: Text('Orders')),
