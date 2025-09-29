@@ -2,6 +2,15 @@ import 'package:clot/core/services/api_service.dart';
 import 'package:clot/features/auth/data/data_sources/auth_remote_data_source.dart';
 import 'package:clot/features/auth/data/repos/auth_repo_impl.dart';
 import 'package:clot/features/auth/domain/repos/auth_repo.dart';
+import 'package:clot/features/brands/data/data_source/brand_remote_data_source.dart';
+import 'package:clot/features/brands/data/repo/brands_repo_impl.dart';
+import 'package:clot/features/brands/domain/repo/brands_repo.dart';
+import 'package:clot/features/categories/data/data_source/categories_remote_data_source.dart';
+import 'package:clot/features/categories/data/repo/categories_repo_impl.dart';
+import 'package:clot/features/categories/domain/repo/categories_repo.dart';
+import 'package:clot/features/home/data/data_source/home_remote_data_source.dart';
+import 'package:clot/features/home/data/repos/home_repo_impl.dart';
+import 'package:clot/features/home/domain/repos/home_repo.dart';
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 
@@ -16,5 +25,31 @@ void serverLocator() {
 
   getIt.registerLazySingleton<AuthRepo>(
     () => AuthRepoImpl(authRemoteDataSource: getIt<AuthRemoteDataSource>()),
+  );
+
+  getIt.registerLazySingleton<HomeRemoteDataSource>(
+    () => HomeRemoteDataSourceImpl(apiService: getIt<ApiService>()),
+  );
+
+  getIt.registerLazySingleton<HomeRepo>(
+    () => HomeRepoImpl(homeRemoteDataSource: getIt<HomeRemoteDataSource>()),
+  );
+
+  getIt.registerLazySingleton<BrandRemoteDataSource>(
+    () => BrandRemoteDataSourceImpl(apiService: getIt<ApiService>()),
+  );
+
+  getIt.registerLazySingleton<BrandsRepo>(
+    () => BrandsRepoImpl(brandRemoteDataSource: getIt<BrandRemoteDataSource>()),
+  );
+
+  getIt.registerLazySingleton<CategoriesRemoteDataSource>(
+    () => CategoriesRemoteDataSourceImpl(apiService: getIt<ApiService>()),
+  );
+
+  getIt.registerLazySingleton<CategoriesRepo>(
+    () => CategoriesRepoImpl(
+      categoriesRemoteDataSource: getIt<CategoriesRemoteDataSource>(),
+    ),
   );
 }
