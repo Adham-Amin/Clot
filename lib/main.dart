@@ -1,9 +1,11 @@
 import 'package:clot/core/di/service_locator.dart';
 import 'package:clot/core/functions/execute_to_navigator.dart';
 import 'package:clot/core/routes/on_generate_route.dart';
+import 'package:clot/core/services/custom_observer_bloc.dart';
 import 'package:clot/core/services/shared_preferences_service.dart';
 import 'package:clot/core/utils/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -11,6 +13,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Prefs.init();
   serverLocator();
+  Bloc.observer = CustomObserverBloc();
   runApp(const Clot());
 }
 

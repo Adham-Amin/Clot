@@ -4,6 +4,13 @@ import 'package:clot/features/auth/presentation/views/login_view.dart';
 import 'package:clot/features/auth/presentation/views/register_view.dart';
 import 'package:clot/features/auth/presentation/views/reset_password_view.dart';
 import 'package:clot/features/auth/presentation/views/verify_code_view.dart';
+import 'package:clot/features/brands/presentation/views/brands_view.dart';
+import 'package:clot/features/brands/presentation/views/products_brand_view.dart';
+import 'package:clot/features/categories/domain/entities/category_entity.dart';
+import 'package:clot/features/categories/presentation/views/categories_view.dart';
+import 'package:clot/features/categories/presentation/views/products_category_view.dart';
+import 'package:clot/features/home/domain/entities/product_entity.dart';
+import 'package:clot/features/home/presentation/views/products_view.dart';
 import 'package:clot/main_view.dart';
 import 'package:flutter/material.dart';
 
@@ -19,8 +26,35 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
       return MaterialPageRoute(builder: (_) => const VerifyCodeView());
     case AppRoutes.resetPasswordView:
       return MaterialPageRoute(builder: (_) => const ResetPasswordView());
+    case AppRoutes.productsView:
+      return MaterialPageRoute(
+        builder: (_) =>
+            ProductsView(products: settings.arguments as List<ProductEntity>),
+      );
     case AppRoutes.mainView:
       return MaterialPageRoute(builder: (_) => const MainView());
+    case AppRoutes.categoriesView:
+      return MaterialPageRoute(
+        builder: (_) => CategoriesView(
+          categories: settings.arguments as List<CategoryEntity>,
+        ),
+      );
+    case AppRoutes.productsBrandsView:
+      return MaterialPageRoute(
+        builder: (_) =>
+            ProductsBrandView(brand: settings.arguments as CategoryEntity),
+      );
+    case AppRoutes.productsCategoriesView:
+      return MaterialPageRoute(
+        builder: (_) => ProductsCategoryView(
+          category: settings.arguments as CategoryEntity,
+        ),
+      );
+    case AppRoutes.brandsView:
+      return MaterialPageRoute(
+        builder: (_) =>
+            BrandsView(brands: settings.arguments as List<CategoryEntity>),
+      );
     default:
       return MaterialPageRoute(builder: (_) => const Scaffold());
   }

@@ -1,6 +1,6 @@
 class ProductEntity {
   final String id;
-  final List<String> images;
+  final List<dynamic> images;
   final String title;
   final String description;
   final num price;
