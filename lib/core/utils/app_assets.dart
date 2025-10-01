@@ -50,6 +50,10 @@ class AppAssets {
   /// assets/svgs/arrow_back.svg
   static const String svgsArrowBack = "assets/svgs/arrow_back.svg";
 
+  /// Assets for svgsArrowDown
+  /// assets/svgs/arrow_down.svg
+  static const String svgsArrowDown = "assets/svgs/arrow_down.svg";
+
   /// Assets for svgsIconCart
   /// assets/svgs/icon_cart.svg
   static const String svgsIconCart = "assets/svgs/icon_cart.svg";
@@ -57,6 +61,10 @@ class AppAssets {
   /// Assets for svgsIconFav
   /// assets/svgs/icon_fav.svg
   static const String svgsIconFav = "assets/svgs/icon_fav.svg";
+
+  /// Assets for svgsIconLove
+  /// assets/svgs/icon_love.svg
+  static const String svgsIconLove = "assets/svgs/icon_love.svg";
 
   /// Assets for svgsIconSerch
   /// assets/svgs/icon_serch.svg

@@ -1,3 +1,5 @@
+import 'package:clot/features/categories/domain/entities/category_entity.dart';
+
 class ProductEntity {
   final String id;
   final List<dynamic> images;
@@ -7,8 +9,10 @@ class ProductEntity {
   final num rating;
   final num quantity;
   final String imageCover;
+  final CategoryEntity brand;
 
   ProductEntity({
+    required this.brand,
     required this.imageCover,
     required this.id,
     required this.images,

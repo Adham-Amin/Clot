@@ -1,3 +1,4 @@
+import 'package:clot/features/categories/domain/entities/category_entity.dart';
 import 'package:clot/features/home/domain/entities/product_entity.dart';
 
 import 'brand.dart';
@@ -92,6 +93,11 @@ class ProductResponse {
   };
 
   ProductEntity toEntity() => ProductEntity(
+    brand: CategoryEntity(
+      id: brand?.id ?? '',
+      image: brand?.image ?? '',
+      name: brand?.name ?? '',
+    ),
     images: images ?? [],
     id: id ?? '',
     title: title ?? '',

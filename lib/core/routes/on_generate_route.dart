@@ -11,6 +11,7 @@ import 'package:clot/features/categories/presentation/views/categories_view.dart
 import 'package:clot/features/categories/presentation/views/products_category_view.dart';
 import 'package:clot/features/home/domain/entities/product_entity.dart';
 import 'package:clot/features/home/presentation/views/products_view.dart';
+import 'package:clot/features/product_details/presentation/views/product_details_view.dart';
 import 'package:clot/main_view.dart';
 import 'package:flutter/material.dart';
 
@@ -38,6 +39,11 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
         builder: (_) => CategoriesView(
           categories: settings.arguments as List<CategoryEntity>,
         ),
+      );
+    case AppRoutes.productDetailsView:
+      return MaterialPageRoute(
+        builder: (_) =>
+            ProductDetailsView(product: settings.arguments as ProductEntity),
       );
     case AppRoutes.productsBrandsView:
       return MaterialPageRoute(
