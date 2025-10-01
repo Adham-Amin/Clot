@@ -4,16 +4,30 @@ import 'package:clot/core/routes/on_generate_route.dart';
 import 'package:clot/core/services/custom_observer_bloc.dart';
 import 'package:clot/core/services/shared_preferences_service.dart';
 import 'package:clot/core/utils/app_colors.dart';
+import 'package:clot/features/categories/domain/entities/category_entity.dart';
+import 'package:clot/features/home/domain/entities/product_entity.dart';
+import 'package:clot/features/watchlist/domain/repos/watchlist_repo.dart';
+import 'package:clot/features/watchlist/presentation/cubit/wishlist_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
   await Prefs.init();
+  await Hive.initFlutter();
+
+  Hive.registerAdapter(ProductEntityAdapter());
+  Hive.registerAdapter(CategoryEntityAdapter());
+
+  await Hive.openBox<ProductEntity>('watchlist');
+
   serverLocator();
   Bloc.observer = CustomObserverBloc();
+
   runApp(const Clot());
 }
 
@@ -26,20 +40,29 @@ class Clot extends StatelessWidget {
       designSize: const Size(390, 844),
       splitScreenMode: true,
       minTextAdapt: true,
-      child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          useMaterial3: true,
-          colorScheme: ColorScheme.fromSeed(
-            seedColor: AppColors.primary,
-            brightness: Brightness.dark,
+      child: MultiBlocProvider(
+        providers: [
+          BlocProvider(
+            create: (context) =>
+                WatchlistCubit(watchlistRepo: getIt<WatchlistRepo>())
+                  ..loadWatchlist(),
           ),
-          textTheme: GoogleFonts.plusJakartaSansTextTheme(),
-          primaryColor: AppColors.primary,
-          scaffoldBackgroundColor: AppColors.dark,
+        ],
+        child: MaterialApp(
+          debugShowCheckedModeBanner: false,
+          theme: ThemeData(
+            useMaterial3: true,
+            colorScheme: ColorScheme.fromSeed(
+              seedColor: AppColors.primary,
+              brightness: Brightness.dark,
+            ),
+            textTheme: GoogleFonts.plusJakartaSansTextTheme(),
+            primaryColor: AppColors.primary,
+            scaffoldBackgroundColor: AppColors.dark,
+          ),
+          initialRoute: executeToNavigator(),
+          onGenerateRoute: onGenerateRoute,
         ),
-        initialRoute: executeToNavigator(),
-        onGenerateRoute: onGenerateRoute,
       ),
     );
   }

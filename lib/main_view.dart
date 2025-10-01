@@ -1,6 +1,7 @@
 import 'package:clot/core/utils/app_assets.dart';
 import 'package:clot/core/utils/app_colors.dart';
 import 'package:clot/features/home/presentation/views/home_view.dart';
+import 'package:clot/features/watchlist/presentation/views/watchlist_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -17,10 +18,16 @@ class MainViewState extends State<MainView> {
   final List<Widget> _pages = const [
     HomeView(),
     Center(child: Text('Search')),
-    Center(child: Text('Favorites')),
+    WatchlistView(),
     Center(child: Text('Orders')),
     Center(child: Text('Profile')),
   ];
+
+  void changeTab(int index) {
+    setState(() {
+      _currentIndex = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -28,11 +35,7 @@ class MainViewState extends State<MainView> {
       body: IndexedStack(index: _currentIndex, children: _pages),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
-        onTap: (index) {
-          setState(() {
-            _currentIndex = index;
-          });
-        },
+        onTap: (index) => changeTab(index),
         type: BottomNavigationBarType.fixed,
         showSelectedLabels: false,
         showUnselectedLabels: false,

@@ -3,11 +3,11 @@ import 'package:clot/core/routes/app_routes.dart';
 import 'package:clot/core/utils/app_assets.dart';
 import 'package:clot/core/utils/app_colors.dart';
 import 'package:clot/core/utils/app_styles.dart';
+import 'package:clot/core/widgets/custom_icon_fav_button.dart';
 import 'package:clot/core/widgets/height_and_width.dart';
 import 'package:clot/features/home/domain/entities/product_entity.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
@@ -95,17 +95,7 @@ class ProductItem extends StatelessWidget {
           Positioned(
             top: 8.h,
             right: 8.w,
-            child: GestureDetector(
-              onTap: () {},
-              child: Container(
-                padding: EdgeInsets.all(8.w),
-                decoration: BoxDecoration(
-                  color: AppColors.secondary,
-                  shape: BoxShape.circle,
-                ),
-                child: SvgPicture.asset(AppAssets.svgsIconFav),
-              ),
-            ),
+            child: CustomIconFavButton(product: product),
           ),
         ],
       ),

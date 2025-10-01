@@ -11,4 +11,7 @@ abstract class AppRoutes {
   static const String productsCategoriesView = '/productsCategoriesView';
   static const String productsBrandsView = '/productsBrandsView';
   static const String productDetailsView = '/productDetailsView';
+  static const String cartView = '/cartView';
+  static const String homeView = '/homeView';
+  static const String checkoutView = '/checkoutView';
 }
