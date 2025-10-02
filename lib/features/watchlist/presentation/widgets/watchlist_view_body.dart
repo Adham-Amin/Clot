@@ -19,7 +19,7 @@ class WatchlistViewBody extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 24.w),
       child: Column(
         children: [
-          HeightBox(32),
+          HeightBox(20),
           Center(
             child: Text(
               'My Favourites',

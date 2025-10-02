@@ -20,7 +20,17 @@ class ProfileViewBody extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 24.w),
       child: Column(
         children: [
-          const Expanded(child: HeightBox(60)),
+          HeightBox(20),
+          Center(
+            child: Text(
+              'Profile',
+              style: AppStyles.textBold16.copyWith(
+                color: AppColors.white,
+                fontFamily: GoogleFonts.gabarito().fontFamily,
+              ),
+            ),
+          ),
+          const Expanded(child: HeightBox(20)),
           Image.asset(
             AppAssets.imagesAvatar,
             width: 80.w,

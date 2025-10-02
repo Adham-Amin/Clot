@@ -1,4 +1,3 @@
-import 'package:clot/core/services/shared_preferences_service.dart';
 import 'package:clot/core/utils/app_assets.dart';
 import 'package:clot/core/utils/app_colors.dart';
 import 'package:clot/core/utils/app_styles.dart';
@@ -19,7 +18,7 @@ class HomeHeader extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'Hi, ${Prefs.getUser()!.name}',
+              'Welcome Back',
               style: AppStyles.textBold16.copyWith(
                 color: AppColors.white,
                 fontSize: 20.sp,
