@@ -1,6 +1,7 @@
 import 'package:clot/core/utils/app_assets.dart';
 import 'package:clot/core/utils/app_colors.dart';
 import 'package:clot/features/home/presentation/views/home_view.dart';
+import 'package:clot/features/profile/presentation/views/profile_view.dart';
 import 'package:clot/features/watchlist/presentation/views/watchlist_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -20,7 +21,7 @@ class MainViewState extends State<MainView> {
     Center(child: Text('Search')),
     WatchlistView(),
     Center(child: Text('Orders')),
-    Center(child: Text('Profile')),
+    ProfileView(),
   ];
 
   void changeTab(int index) {

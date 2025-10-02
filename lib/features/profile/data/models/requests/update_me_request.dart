@@ -13,9 +13,11 @@ class UpdateMeRequest {
     );
   }
 
-  Map<String, dynamic> toJson() => {
-    'name': name,
-    'email': email,
-    'phone': phone,
-  };
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = {};
+    if (name != null && name!.isNotEmpty) data['name'] = name;
+    if (email != null && email!.isNotEmpty) data['email'] = email;
+    if (phone != null && phone!.isNotEmpty) data['phone'] = phone;
+    return data;
+  }
 }

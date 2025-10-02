@@ -6,6 +6,8 @@ import 'package:clot/core/services/shared_preferences_service.dart';
 import 'package:clot/core/utils/app_colors.dart';
 import 'package:clot/features/categories/domain/entities/category_entity.dart';
 import 'package:clot/features/home/domain/entities/product_entity.dart';
+import 'package:clot/features/profile/domain/repos/profile_repo.dart';
+import 'package:clot/features/profile/presentation/manager/address_cubit/address_cubit.dart';
 import 'package:clot/features/watchlist/domain/repos/watchlist_repo.dart';
 import 'package:clot/features/watchlist/presentation/cubit/wishlist_cubit.dart';
 import 'package:flutter/material.dart';
@@ -46,6 +48,10 @@ class Clot extends StatelessWidget {
             create: (context) =>
                 WatchlistCubit(watchlistRepo: getIt<WatchlistRepo>())
                   ..loadWatchlist(),
+          ),
+          BlocProvider(
+            create: (context) =>
+                AddressCubit(profileRepo: getIt<ProfileRepo>())..getAddress(),
           ),
         ],
         child: MaterialApp(
