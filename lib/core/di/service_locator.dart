@@ -11,6 +11,9 @@ import 'package:clot/features/categories/domain/repo/categories_repo.dart';
 import 'package:clot/features/home/data/data_source/home_remote_data_source.dart';
 import 'package:clot/features/home/data/repos/home_repo_impl.dart';
 import 'package:clot/features/home/domain/repos/home_repo.dart';
+import 'package:clot/features/profile/data/data_sources/profile_remote_data_source.dart';
+import 'package:clot/features/profile/data/repos/profile_repo_impl.dart';
+import 'package:clot/features/profile/domain/repos/profile_repo.dart';
 import 'package:clot/features/watchlist/data/data_sources/local_watchlist_data_source.dart';
 import 'package:clot/features/watchlist/data/repos/watchlist_repo_impl.dart';
 import 'package:clot/features/watchlist/domain/repos/watchlist_repo.dart';
@@ -55,12 +58,24 @@ void serverLocator() {
       categoriesRemoteDataSource: getIt<CategoriesRemoteDataSource>(),
     ),
   );
+
   getIt.registerLazySingleton<LocalWatchlistDataSource>(
     () => LocalWatchlistDataSourceImpl(),
   );
+
   getIt.registerLazySingleton<WatchlistRepo>(
     () => WatchlistRepoImpl(
       localWatchlistDataSource: getIt<LocalWatchlistDataSource>(),
+    ),
+  );
+
+  getIt.registerLazySingleton<ProfileRemoteDataSource>(
+    () => ProfileRemoteDataSourceImpl(apiService: getIt<ApiService>()),
+  );
+
+  getIt.registerLazySingleton<ProfileRepo>(
+    () => ProfileRepoImpl(
+      profileRemoteDataSource: getIt<ProfileRemoteDataSource>(),
     ),
   );
 }
