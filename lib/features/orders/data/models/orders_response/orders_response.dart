@@ -88,6 +88,8 @@ class OrdersResponse {
 
   OrdersEntity toEntity() => OrdersEntity(
     id: orderId ?? 0,
+    address: '${shippingAddress?.details} ${shippingAddress?.city}',
+    phone: shippingAddress?.phone ?? '',
     items:
         cartItems
             ?.map(

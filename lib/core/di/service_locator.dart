@@ -14,6 +14,9 @@ import 'package:clot/features/categories/domain/repo/categories_repo.dart';
 import 'package:clot/features/home/data/data_source/home_remote_data_source.dart';
 import 'package:clot/features/home/data/repos/home_repo_impl.dart';
 import 'package:clot/features/home/domain/repos/home_repo.dart';
+import 'package:clot/features/orders/data/data_source/orders_remote_data_source.dart';
+import 'package:clot/features/orders/data/repo/orders_repo_impl.dart';
+import 'package:clot/features/orders/domain/repo/orders_repo.dart';
 import 'package:clot/features/profile/data/data_sources/profile_remote_data_source.dart';
 import 'package:clot/features/profile/data/repos/profile_repo_impl.dart';
 import 'package:clot/features/profile/domain/repos/profile_repo.dart';
@@ -88,5 +91,14 @@ void serverLocator() {
 
   getIt.registerLazySingleton<CartRepo>(
     () => CartRepoImpl(cartRemoteDataSource: getIt<CartRemoteDataSource>()),
+  );
+
+  getIt.registerLazySingleton<OrdersRemoteDataSource>(
+    () => OrdersRemoteDataSourceImpl(apiService: getIt<ApiService>()),
+  );
+
+  getIt.registerLazySingleton<OrdersRepo>(
+    () =>
+        OrdersRepoImpl(ordersRemoteDataSource: getIt<OrdersRemoteDataSource>()),
   );
 }

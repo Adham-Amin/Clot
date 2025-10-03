@@ -11,6 +11,12 @@ class Prefs {
     _prefs = await SharedPreferences.getInstance();
   }
 
+  static Future<void> setCartId(String value) async {
+    await _prefs?.setString('cartId', value);
+  }
+
+  static String? getCartId() => _prefs?.getString('cartId');
+
   static Future<void> setUser(UserEntity user) async {
     await _prefs?.setString('user', jsonEncode(user.toJson()));
   }
@@ -22,6 +28,8 @@ class Prefs {
 
   static Future<void> clearUserData() async {
     await _prefs?.remove('user');
+    await _prefs?.remove('cartId');
+    await clearToken();
   }
 
   static bool getBool(String key, {bool defaultValue = false}) {
