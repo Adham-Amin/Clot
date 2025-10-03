@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:clot/core/utils/app_colors.dart';
 import 'package:clot/core/utils/app_styles.dart';
 import 'package:clot/features/cart/presentation/cubit/cart_cubit.dart';
@@ -37,11 +35,9 @@ class ButtonBuilder extends StatelessWidget {
         }
         final isInCart =
             state is CartLoaded &&
-            state.cartEntity.products.any((productCart) {
-              log('productCart.id ${productCart.id}');
-              log('product.id ${product.id}');
-              return productCart.id == product.id;
-            });
+            state.cartEntity.products.any(
+              (productCart) => productCart.id == product.id,
+            );
         return state is CartLoading
             ? Row(
                 mainAxisAlignment: MainAxisAlignment.center,
