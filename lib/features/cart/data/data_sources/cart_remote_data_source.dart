@@ -40,7 +40,7 @@ class CartRemoteDataSourceImpl implements CartRemoteDataSource {
   }) async {
     var response = await apiService.put(
       endPoint: '/cart/$productId',
-      data: {"count": "2"},
+      data: {"count": count},
     );
     return CartResponse.fromJson(response['data']).toEntity();
   }

@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:clot/core/utils/app_colors.dart';
 import 'package:clot/core/utils/app_styles.dart';
 import 'package:clot/features/cart/presentation/cubit/cart_cubit.dart';
@@ -16,11 +18,30 @@ class ButtonBuilder extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<CartCubit, CartState>(
       builder: (context, state) {
+        if (state is CartError) {
+          return Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Expanded(
+                child: Text(
+                  state.message,
+                  textAlign: TextAlign.center,
+                  style: AppStyles.textBold16.copyWith(
+                    color: AppColors.white,
+                    fontFamily: GoogleFonts.gabarito().fontFamily,
+                  ),
+                ),
+              ),
+            ],
+          );
+        }
         final isInCart =
             state is CartLoaded &&
-            state.cartEntity.products.any(
-              (productCart) => productCart.id == product.id,
-            );
+            state.cartEntity.products.any((productCart) {
+              log('productCart.id ${productCart.id}');
+              log('product.id ${product.id}');
+              return productCart.id == product.id;
+            });
         return state is CartLoading
             ? Row(
                 mainAxisAlignment: MainAxisAlignment.center,
