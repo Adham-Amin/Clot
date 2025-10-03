@@ -16,7 +16,7 @@ import 'package:clot/features/profile/presentation/views/add_addresse_view.dart'
 import 'package:clot/features/profile/presentation/views/addresse_view.dart';
 import 'package:clot/features/profile/presentation/views/change_password_view.dart';
 import 'package:clot/features/profile/presentation/views/update_information_view.dart';
-import 'package:clot/main_view.dart';
+import 'package:clot/features/main/main_view.dart';
 import 'package:flutter/material.dart';
 
 Route<dynamic> onGenerateRoute(RouteSettings settings) {

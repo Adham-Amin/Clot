@@ -4,6 +4,8 @@ import 'package:clot/core/routes/on_generate_route.dart';
 import 'package:clot/core/services/custom_observer_bloc.dart';
 import 'package:clot/core/services/shared_preferences_service.dart';
 import 'package:clot/core/utils/app_colors.dart';
+import 'package:clot/features/cart/domain/repo/cart_repo.dart';
+import 'package:clot/features/cart/presentation/cubit/cart_cubit.dart';
 import 'package:clot/features/categories/domain/entities/category_entity.dart';
 import 'package:clot/features/home/domain/entities/product_entity.dart';
 import 'package:clot/features/profile/domain/repos/profile_repo.dart';
@@ -52,6 +54,10 @@ class Clot extends StatelessWidget {
           BlocProvider(
             create: (context) =>
                 AddressCubit(profileRepo: getIt<ProfileRepo>())..getAddress(),
+          ),
+          BlocProvider(
+            create: (context) =>
+                CartCubit(cartRepo: getIt<CartRepo>())..getCart(),
           ),
         ],
         child: MaterialApp(
