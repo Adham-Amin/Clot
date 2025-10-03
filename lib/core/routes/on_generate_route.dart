@@ -12,6 +12,8 @@ import 'package:clot/features/categories/presentation/views/products_category_vi
 import 'package:clot/features/home/domain/entities/product_entity.dart';
 import 'package:clot/features/home/presentation/views/products_view.dart';
 import 'package:clot/features/product_details/presentation/views/product_details_view.dart';
+import 'package:clot/features/profile/presentation/views/add_addresse_view.dart';
+import 'package:clot/features/profile/presentation/views/addresse_view.dart';
 import 'package:clot/features/profile/presentation/views/change_password_view.dart';
 import 'package:clot/features/profile/presentation/views/update_information_view.dart';
 import 'package:clot/main_view.dart';
@@ -25,6 +27,10 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
       return MaterialPageRoute(builder: (_) => const RegisterView());
     case AppRoutes.forgetPasswordView:
       return MaterialPageRoute(builder: (_) => const ForgetPasswordView());
+    case AppRoutes.addAddressView:
+      return MaterialPageRoute(builder: (_) => const AddAddresseView());
+    case AppRoutes.addressView:
+      return MaterialPageRoute(builder: (_) => const AddresseView());
     case AppRoutes.verifyCodeView:
       return MaterialPageRoute(builder: (_) => const VerifyCodeView());
     case AppRoutes.resetPasswordView:

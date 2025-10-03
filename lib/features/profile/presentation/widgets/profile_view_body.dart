@@ -46,7 +46,12 @@ class ProfileViewBody extends StatelessWidget {
             },
             title: 'Change Password',
           ),
-          ProfileItem(onTap: () {}, title: 'Addresses'),
+          ProfileItem(
+            onTap: () {
+              Navigator.pushNamed(context, AppRoutes.addressView);
+            },
+            title: 'Addresses',
+          ),
           ProfileItem(
             onTap: () {
               navigateToTab(context, 2);
