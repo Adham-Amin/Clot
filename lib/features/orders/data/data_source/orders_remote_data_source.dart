@@ -12,9 +12,11 @@ class OrdersRemoteDataSourceImpl implements OrdersRemoteDataSource {
 
   @override
   Future<List<OrdersEntity>> getOrders({required String userId}) async {
-    var response = await apiService.get(endPoint: '/orders/user/$userId');
-    return (response as List)
-        .map((e) => OrdersResponse.fromJson(e).toEntity())
-        .toList();
+    final response = await apiService.get(endPoint: '/orders/user/$userId');
+    List<OrdersEntity> orders = [];
+    for (var order in response) {
+      orders.add(OrdersResponse.fromJson(order).toEntity());
+    }
+    return orders;
   }
 }

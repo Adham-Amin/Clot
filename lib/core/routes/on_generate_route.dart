@@ -11,6 +11,8 @@ import 'package:clot/features/categories/presentation/views/categories_view.dart
 import 'package:clot/features/categories/presentation/views/products_category_view.dart';
 import 'package:clot/features/home/domain/entities/product_entity.dart';
 import 'package:clot/features/home/presentation/views/products_view.dart';
+import 'package:clot/features/orders/domain/entities/orders_entity.dart';
+import 'package:clot/features/orders/presentation/views/order_details_view.dart';
 import 'package:clot/features/product_details/presentation/views/product_details_view.dart';
 import 'package:clot/features/profile/presentation/views/add_addresse_view.dart';
 import 'package:clot/features/profile/presentation/views/addresse_view.dart';
@@ -41,6 +43,11 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
       return MaterialPageRoute(
         builder: (_) =>
             ProductsView(products: settings.arguments as List<ProductEntity>),
+      );
+    case AppRoutes.orderDetailsView:
+      return MaterialPageRoute(
+        builder: (_) =>
+            OrderDetailsView(order: settings.arguments as OrdersEntity),
       );
     case AppRoutes.mainView:
       return MaterialPageRoute(builder: (_) => const MainView());

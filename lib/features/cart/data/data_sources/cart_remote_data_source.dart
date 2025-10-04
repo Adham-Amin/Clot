@@ -26,7 +26,7 @@ class CartRemoteDataSourceImpl implements CartRemoteDataSource {
   Future<CartEntity> getCart() async {
     var response = await apiService.get(endPoint: '/cart');
     var cart = CartResponse.fromJson(response['data']);
-    Prefs.setCartId(cart.cartOwner ?? '');
+    await Prefs.setCartId(cart.cartOwner ?? '');
     return cart.toEntity();
   }
 

@@ -1,6 +1,7 @@
 import 'package:clot/core/utils/app_assets.dart';
 import 'package:clot/core/utils/app_colors.dart';
 import 'package:clot/features/home/presentation/views/home_view.dart';
+import 'package:clot/features/orders/presentation/views/orders_view.dart';
 import 'package:clot/features/profile/presentation/views/profile_view.dart';
 import 'package:clot/features/watchlist/presentation/views/watchlist_view.dart';
 import 'package:flutter/material.dart';
@@ -18,9 +19,8 @@ class MainViewState extends State<MainView> {
 
   final List<Widget> _pages = const [
     HomeView(),
-    Center(child: Text('Search')),
     WatchlistView(),
-    Center(child: Text('Orders')),
+    OrdersView(),
     ProfileView(),
   ];
 
@@ -54,19 +54,9 @@ class MainViewState extends State<MainView> {
           ),
           BottomNavigationBarItem(
             icon: Image.asset(
-              AppAssets.imagesIconSearch,
-              width: 20.w,
-              color: _currentIndex == 1
-                  ? AppColors.primary.withValues(alpha: 0.65)
-                  : AppColors.white.withValues(alpha: 0.2),
-            ),
-            label: 'Search',
-          ),
-          BottomNavigationBarItem(
-            icon: Image.asset(
               AppAssets.imagesIconFav,
               width: 24.w,
-              color: _currentIndex == 2
+              color: _currentIndex == 1
                   ? AppColors.primary.withValues(alpha: 0.65)
                   : AppColors.white.withValues(alpha: 0.2),
             ),
@@ -76,7 +66,7 @@ class MainViewState extends State<MainView> {
             icon: Image.asset(
               AppAssets.imagesIconOrders,
               width: 40.w,
-              color: _currentIndex == 3
+              color: _currentIndex == 2
                   ? AppColors.primary
                   : AppColors.white.withValues(alpha: 0.5),
             ),
@@ -86,7 +76,7 @@ class MainViewState extends State<MainView> {
             icon: Image.asset(
               AppAssets.imagesIconProfile,
               width: 40.w,
-              color: _currentIndex == 4
+              color: _currentIndex == 3
                   ? AppColors.primary
                   : AppColors.white.withValues(alpha: 0.5),
             ),

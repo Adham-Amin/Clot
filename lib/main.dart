@@ -31,7 +31,7 @@ void main() async {
 
   serverLocator();
   Bloc.observer = CustomObserverBloc();
-
+  await getIt<CartRepo>().getCart();
   runApp(const Clot());
 }
 
