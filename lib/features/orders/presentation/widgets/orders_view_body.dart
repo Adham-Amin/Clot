@@ -25,7 +25,7 @@ class OrdersViewBody extends StatelessWidget {
           HeightBox(20),
           Center(
             child: Text(
-              'Profile',
+              'Your Orders',
               style: AppStyles.textBold16.copyWith(
                 color: AppColors.white,
                 fontFamily: GoogleFonts.gabarito().fontFamily,

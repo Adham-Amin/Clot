@@ -1,4 +1,5 @@
 import 'package:clot/core/services/api_service.dart';
+import 'package:clot/core/services/shared_preferences_service.dart';
 import 'package:clot/features/checkout/data/models/request/chechout_request/checkout_request.dart';
 import 'package:clot/features/checkout/data/models/response/cash_response/cash_response.dart';
 import 'package:clot/features/checkout/data/models/response/visa_response/visa_response.dart';
@@ -27,6 +28,8 @@ class CheckoutRemoteDataSourceImpl implements CheckoutRemoteDataSource {
       endPoint: '/orders/$cartId',
       data: request.toJson(),
     );
+    var cashResponse = CashResponse.fromJson(response);
+    Prefs.setCartId(cashResponse.user ?? '');
     return CashResponse.fromJson(response);
   }
 

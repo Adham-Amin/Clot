@@ -10,6 +10,8 @@ import 'package:clot/features/cart/presentation/views/cart_view.dart';
 import 'package:clot/features/categories/domain/entities/category_entity.dart';
 import 'package:clot/features/categories/presentation/views/categories_view.dart';
 import 'package:clot/features/categories/presentation/views/products_category_view.dart';
+import 'package:clot/features/checkout/presentation/views/checkout_view.dart';
+import 'package:clot/features/checkout/presentation/views/order_done_view.dart';
 import 'package:clot/features/home/domain/entities/product_entity.dart';
 import 'package:clot/features/home/presentation/views/products_view.dart';
 import 'package:clot/features/orders/domain/entities/orders_entity.dart';
@@ -40,6 +42,12 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
       return MaterialPageRoute(builder: (_) => const ResetPasswordView());
     case AppRoutes.changePasswordView:
       return MaterialPageRoute(builder: (_) => const ChangePasswordView());
+    case AppRoutes.orderDoneView:
+      return MaterialPageRoute(builder: (_) => const OrderDoneView());
+    case AppRoutes.checkoutView:
+      return MaterialPageRoute(
+        builder: (_) => CheckoutView(cartId: settings.arguments as String),
+      );
     case AppRoutes.cartView:
       return MaterialPageRoute(builder: (_) => const CartView());
     case AppRoutes.productsView:

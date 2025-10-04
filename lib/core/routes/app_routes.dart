@@ -14,6 +14,7 @@ abstract class AppRoutes {
   static const String cartView = '/cartView';
   static const String homeView = '/homeView';
   static const String checkoutView = '/checkoutView';
+  static const String orderDoneView = '/orderDoneView';
   static const String updateInfoView = '/updateInfoView';
   static const String changePasswordView = '/changePasswordView';
   static const String addAddressView = '/addAddressView';

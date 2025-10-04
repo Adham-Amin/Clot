@@ -11,17 +11,17 @@ class MainView extends StatefulWidget {
   const MainView({super.key});
 
   @override
-  MainViewState createState() => MainViewState();
+  State<MainView> createState() => MainViewState();
 }
 
 class MainViewState extends State<MainView> {
   int _currentIndex = 0;
 
-  final List<Widget> _pages = const [
-    HomeView(),
-    WatchlistView(),
+  List<Widget> get _pages => [
+    const HomeView(),
+    const WatchlistView(),
     OrdersView(),
-    ProfileView(),
+    const ProfileView(),
   ];
 
   void changeTab(int index) {

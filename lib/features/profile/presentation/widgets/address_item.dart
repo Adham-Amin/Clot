@@ -11,10 +11,16 @@ import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class AddressItem extends StatelessWidget {
-  const AddressItem({super.key, required this.address, this.isOrder});
+  const AddressItem({
+    super.key,
+    required this.address,
+    this.isOrder,
+    this.isSelected,
+  });
 
   final AddressResponse address;
   final bool? isOrder;
+  final bool? isSelected;
 
   @override
   Widget build(BuildContext context) {
@@ -24,6 +30,9 @@ class AddressItem extends StatelessWidget {
       decoration: BoxDecoration(
         color: AppColors.secondary,
         borderRadius: BorderRadius.circular(8.r),
+        border: Border.all(
+          color: isSelected == true ? AppColors.primary : Colors.transparent,
+        ),
       ),
       child: Row(
         children: [

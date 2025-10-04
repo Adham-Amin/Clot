@@ -38,6 +38,10 @@ class AppAssets {
   /// assets/images/no_order.png
   static const String imagesNoOrder = "assets/images/no_order.png";
 
+  /// Assets for imagesOrderSuccess
+  /// assets/images/order_success.png
+  static const String imagesOrderSuccess = "assets/images/order_success.png";
+
   /// Assets for imagesSplash
   /// assets/images/splash.png
   static const String imagesSplash = "assets/images/splash.png";
@@ -89,10 +93,6 @@ class AppAssets {
   /// Assets for svgsMinus
   /// assets/svgs/minus.svg
   static const String svgsMinus = "assets/svgs/minus.svg";
-
-  /// Assets for svgsOrderSuccess
-  /// assets/svgs/order_success.svg
-  static const String svgsOrderSuccess = "assets/svgs/order_success.svg";
 
   /// Assets for svgsPromoCode
   /// assets/svgs/promo_code.svg
