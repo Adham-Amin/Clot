@@ -54,7 +54,7 @@ class ProfileViewBody extends StatelessWidget {
           ),
           ProfileItem(
             onTap: () {
-              navigateToTab(context, 2);
+              navigateToTab(context, 1);
             },
             title: 'Favorites',
           ),

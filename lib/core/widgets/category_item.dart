@@ -29,9 +29,12 @@ class CategoryItem extends StatelessWidget {
                 child: CachedNetworkImage(
                   imageUrl: category.image,
                   fit: BoxFit.fill,
-                  placeholder: (context, url) =>
-                      Skeletonizer(child: Image.asset(AppAssets.imagesTestC)),
-                  errorWidget: (context, url, error) => const Icon(Icons.error),
+                  placeholder: (context, url) => Skeletonizer(
+                    enabled: true,
+                    child: Image.asset(AppAssets.imagesTestC),
+                  ),
+                  errorWidget: (context, url, error) =>
+                      Image.asset(AppAssets.imagesTestC),
                 ),
               ),
             ),

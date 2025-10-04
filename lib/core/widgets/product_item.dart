@@ -45,10 +45,11 @@ class ProductItem extends StatelessWidget {
                       imageUrl: product.imageCover,
                       fit: BoxFit.fill,
                       placeholder: (context, url) => Skeletonizer(
-                        child: Image.asset(AppAssets.imagesTestC),
+                        enabled: true,
+                        child: Image.asset(AppAssets.imagesTestP),
                       ),
                       errorWidget: (context, url, error) =>
-                          const Icon(Icons.error),
+                          Image.asset(AppAssets.imagesTestP),
                     ),
                   ),
                 ),
