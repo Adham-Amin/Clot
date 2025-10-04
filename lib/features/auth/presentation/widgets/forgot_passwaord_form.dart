@@ -83,20 +83,26 @@ class _ForgotPasswordFormState extends State<ForgotPasswordForm> {
                 );
               }
             },
-            child: CustomButton(
-              title: 'Send',
-              onTap: () {
-                if (_formKey.currentState!.validate()) {
-                  _formKey.currentState!.save();
-                  context.read<ForgetPasswordCubit>().forgetPassword(
-                    email: _emailController.text,
-                  );
-                } else {
-                  setState(() {
-                    _autovalidateMode = AutovalidateMode.always;
-                  });
-                }
-              },
+            child: Row(
+              children: [
+                Expanded(
+                  child: CustomButton(
+                    title: 'Send',
+                    onTap: () {
+                      if (_formKey.currentState!.validate()) {
+                        _formKey.currentState!.save();
+                        context.read<ForgetPasswordCubit>().forgetPassword(
+                          email: _emailController.text,
+                        );
+                      } else {
+                        setState(() {
+                          _autovalidateMode = AutovalidateMode.always;
+                        });
+                      }
+                    },
+                  ),
+                ),
+              ],
             ),
           ),
         ],

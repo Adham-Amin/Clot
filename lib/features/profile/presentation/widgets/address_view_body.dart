@@ -2,6 +2,7 @@ import 'package:clot/core/routes/app_routes.dart';
 import 'package:clot/core/utils/app_colors.dart';
 import 'package:clot/core/utils/app_styles.dart';
 import 'package:clot/core/widgets/height_and_width.dart';
+import 'package:clot/features/checkout/presentation/widgets/loading_address.dart';
 import 'package:clot/features/profile/presentation/manager/address_cubit/address_cubit.dart';
 import 'package:clot/features/profile/presentation/widgets/address_item.dart';
 import 'package:clot/features/profile/presentation/widgets/custom_app_bar.dart';
@@ -51,6 +52,8 @@ class AddressViewBody extends StatelessWidget {
                       ),
                     ),
                   );
+                } else if (state is AddressLoading) {
+                  return LoadingAddresses();
                 } else {
                   return NoAddress();
                 }

@@ -83,20 +83,26 @@ class _VerifyCodeFormState extends State<VerifyCodeForm> {
                 );
               }
             },
-            child: CustomButton(
-              title: 'Verify',
-              onTap: () {
-                if (_formKey.currentState!.validate()) {
-                  _formKey.currentState!.save();
-                  context.read<ForgetPasswordCubit>().verifyCode(
-                    code: _codeController.text,
-                  );
-                } else {
-                  setState(() {
-                    _autovalidateMode = AutovalidateMode.always;
-                  });
-                }
-              },
+            child: Row(
+              children: [
+                Expanded(
+                  child: CustomButton(
+                    title: 'Verify',
+                    onTap: () {
+                      if (_formKey.currentState!.validate()) {
+                        _formKey.currentState!.save();
+                        context.read<ForgetPasswordCubit>().verifyCode(
+                          code: _codeController.text,
+                        );
+                      } else {
+                        setState(() {
+                          _autovalidateMode = AutovalidateMode.always;
+                        });
+                      }
+                    },
+                  ),
+                ),
+              ],
             ),
           ),
         ],

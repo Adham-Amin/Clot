@@ -20,7 +20,8 @@ class MainViewState extends State<MainView> {
   List<Widget> get _pages => [
     const HomeView(),
     const WatchlistView(),
-    OrdersView(),
+    // OrdersView(key: _currentIndex == 2 ? UniqueKey() : null),
+    const OrdersView(),
     const ProfileView(),
   ];
 

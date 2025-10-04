@@ -87,21 +87,27 @@ class _ResetPasswordFormState extends State<ResetPasswordForm> {
                 );
               }
             },
-            child: CustomButton(
-              title: 'Save',
-              onTap: () {
-                if (_formKey.currentState!.validate()) {
-                  _formKey.currentState!.save();
-                  context.read<ForgetPasswordCubit>().resetPassword(
-                    email: _emailController.text,
-                    newPassword: _passwordController.text,
-                  );
-                } else {
-                  setState(() {
-                    _autovalidateMode = AutovalidateMode.always;
-                  });
-                }
-              },
+            child: Row(
+              children: [
+                Expanded(
+                  child: CustomButton(
+                    title: 'Save',
+                    onTap: () {
+                      if (_formKey.currentState!.validate()) {
+                        _formKey.currentState!.save();
+                        context.read<ForgetPasswordCubit>().resetPassword(
+                          email: _emailController.text,
+                          newPassword: _passwordController.text,
+                        );
+                      } else {
+                        setState(() {
+                          _autovalidateMode = AutovalidateMode.always;
+                        });
+                      }
+                    },
+                  ),
+                ),
+              ],
             ),
           ),
         ],

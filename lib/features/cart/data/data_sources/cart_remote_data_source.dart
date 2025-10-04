@@ -1,5 +1,4 @@
 import 'package:clot/core/services/api_service.dart';
-import 'package:clot/core/services/shared_preferences_service.dart';
 import 'package:clot/features/cart/data/models/cart_response.dart';
 import 'package:clot/features/cart/domain/entities/cart_entity.dart';
 
@@ -25,9 +24,7 @@ class CartRemoteDataSourceImpl implements CartRemoteDataSource {
   @override
   Future<CartEntity> getCart() async {
     var response = await apiService.get(endPoint: '/cart');
-    var cart = CartResponse.fromJson(response['data']);
-    await Prefs.setCartId(cart.cartOwner ?? '');
-    return cart.toEntity();
+    return CartResponse.fromJson(response['data']).toEntity();
   }
 
   @override

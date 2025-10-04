@@ -91,21 +91,27 @@ class _SignInFormState extends State<SignInForm> {
                 );
               }
             },
-            child: CustomButton(
-              title: 'Sign in',
-              onTap: () {
-                if (_formKey.currentState!.validate()) {
-                  _formKey.currentState!.save();
-                  BlocProvider.of<AuthCubit>(context).login(
-                    email: _emailController.text,
-                    password: _passwordController.text,
-                  );
-                } else {
-                  setState(() {
-                    _autovalidateMode = AutovalidateMode.always;
-                  });
-                }
-              },
+            child: Row(
+              children: [
+                Expanded(
+                  child: CustomButton(
+                    title: 'Sign in',
+                    onTap: () {
+                      if (_formKey.currentState!.validate()) {
+                        _formKey.currentState!.save();
+                        BlocProvider.of<AuthCubit>(context).login(
+                          email: _emailController.text,
+                          password: _passwordController.text,
+                        );
+                      } else {
+                        setState(() {
+                          _autovalidateMode = AutovalidateMode.always;
+                        });
+                      }
+                    },
+                  ),
+                ),
+              ],
             ),
           ),
         ],

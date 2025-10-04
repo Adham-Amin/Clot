@@ -102,24 +102,30 @@ class _AddAddressViewBodyState extends State<AddAddressViewBody> {
                   );
                 }
               },
-              child: CustomButton(
-                onTap: () {
-                  if (formKey.currentState!.validate()) {
-                    formKey.currentState!.save();
-                    context.read<AddressCubit>().addAddress(
-                      request: AddressRequest(
-                        name: stateController.text,
-                        details: addressController.text,
-                        phone: phoneController.text,
-                        city: cityController.text,
-                      ),
-                    );
-                  } else {
-                    autovalidateMode = AutovalidateMode.always;
-                    setState(() {});
-                  }
-                },
-                title: 'Save',
+              child: Row(
+                children: [
+                  Expanded(
+                    child: CustomButton(
+                      onTap: () {
+                        if (formKey.currentState!.validate()) {
+                          formKey.currentState!.save();
+                          context.read<AddressCubit>().addAddress(
+                            request: AddressRequest(
+                              name: stateController.text,
+                              details: addressController.text,
+                              phone: phoneController.text,
+                              city: cityController.text,
+                            ),
+                          );
+                        } else {
+                          autovalidateMode = AutovalidateMode.always;
+                          setState(() {});
+                        }
+                      },
+                      title: 'Save',
+                    ),
+                  ),
+                ],
               ),
             ),
             HeightBox(16),

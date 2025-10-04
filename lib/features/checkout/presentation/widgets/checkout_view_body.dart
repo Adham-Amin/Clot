@@ -28,7 +28,7 @@ class CheckoutViewBody extends StatelessWidget {
               builder: (context, state) {
                 if (state is AddressLoaded) {
                   if (state.addresses.isEmpty) {
-                    return Expanded(child: const NoAddressCheckout());
+                    return const NoAddressCheckout();
                   }
                   return SelectAddress(
                     cartId: cartId,

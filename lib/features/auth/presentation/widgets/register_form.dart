@@ -99,26 +99,32 @@ class _RegisterFormState extends State<RegisterForm> {
                 );
               }
             },
-            child: CustomButton(
-              title: 'Sign up',
-              onTap: () {
-                if (_formKey.currentState!.validate()) {
-                  _formKey.currentState!.save();
-                  context.read<AuthCubit>().register(
-                    registerRequest: RegisterRequest(
-                      name: _nameController.text,
-                      email: _emailController.text,
-                      password: _passwordController.text,
-                      phone: _phoneController.text,
-                      rePassword: _passwordController.text,
-                    ),
-                  );
-                } else {
-                  setState(() {
-                    _autovalidateMode = AutovalidateMode.always;
-                  });
-                }
-              },
+            child: Row(
+              children: [
+                Expanded(
+                  child: CustomButton(
+                    title: 'Sign up',
+                    onTap: () {
+                      if (_formKey.currentState!.validate()) {
+                        _formKey.currentState!.save();
+                        context.read<AuthCubit>().register(
+                          registerRequest: RegisterRequest(
+                            name: _nameController.text,
+                            email: _emailController.text,
+                            password: _passwordController.text,
+                            phone: _phoneController.text,
+                            rePassword: _passwordController.text,
+                          ),
+                        );
+                      } else {
+                        setState(() {
+                          _autovalidateMode = AutovalidateMode.always;
+                        });
+                      }
+                    },
+                  ),
+                ),
+              ],
             ),
           ),
         ],
