@@ -10,7 +10,7 @@ class CashResponse {
   bool? isDelivered;
   String? id;
   String? user;
-  List<CartItem>? cartItems;
+  List<CartItemModel>? cartItems;
   ShippingAddress? shippingAddress;
   DateTime? createdAt;
   DateTime? updatedAt;
@@ -44,7 +44,7 @@ class CashResponse {
     id: json['_id'] as String?,
     user: json['user'] as String?,
     cartItems: (json['cartItems'] as List<dynamic>?)
-        ?.map((e) => CartItem.fromJson(e as Map<String, dynamic>))
+        ?.map((e) => CartItemModel.fromJson(e as Map<String, dynamic>))
         .toList(),
     shippingAddress: json['shippingAddress'] == null
         ? null

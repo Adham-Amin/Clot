@@ -1,3 +1,4 @@
+import 'package:clot/core/routes/app_routes.dart';
 import 'package:clot/core/utils/app_assets.dart';
 import 'package:clot/core/utils/app_colors.dart';
 import 'package:clot/core/utils/app_styles.dart';
@@ -31,10 +32,13 @@ class HomeHeader extends StatelessWidget {
             ),
           ],
         ),
-        CircleAvatar(
-          radius: 20,
-          backgroundColor: AppColors.primary,
-          child: SvgPicture.asset(AppAssets.svgsIconCart),
+        GestureDetector(
+          onTap: () => Navigator.pushNamed(context, AppRoutes.cartView),
+          child: CircleAvatar(
+            radius: 20,
+            backgroundColor: AppColors.primary,
+            child: SvgPicture.asset(AppAssets.svgsIconCart),
+          ),
         ),
       ],
     );

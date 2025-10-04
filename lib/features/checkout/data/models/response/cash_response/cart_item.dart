@@ -1,12 +1,12 @@
-class CartItem {
+class CartItemModel {
   int? count;
   String? id;
   String? product;
   int? price;
 
-  CartItem({this.count, this.id, this.product, this.price});
+  CartItemModel({this.count, this.id, this.product, this.price});
 
-  factory CartItem.fromJson(Map<String, dynamic> json) => CartItem(
+  factory CartItemModel.fromJson(Map<String, dynamic> json) => CartItemModel(
     count: json['count'] as int?,
     id: json['_id'] as String?,
     product: json['product'] as String?,

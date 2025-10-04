@@ -50,6 +50,7 @@ class CartResponse {
   }
 
   CartEntity toEntity() => CartEntity(
+    cartId: sId ?? '',
     totalPrice: totalCartPrice ?? 0,
     products:
         products

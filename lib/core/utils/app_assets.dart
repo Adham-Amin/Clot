@@ -30,6 +30,10 @@ class AppAssets {
   /// assets/images/icon_search.png
   static const String imagesIconSearch = "assets/images/icon_search.png";
 
+  /// Assets for imagesNoCart
+  /// assets/images/no_cart.png
+  static const String imagesNoCart = "assets/images/no_cart.png";
+
   /// Assets for imagesNoOrder
   /// assets/images/no_order.png
   static const String imagesNoOrder = "assets/images/no_order.png";
@@ -50,6 +54,10 @@ class AppAssets {
   /// assets/images/testP.png
   static const String imagesTestP = "assets/images/testP.png";
 
+  /// Assets for svgsAdd
+  /// assets/svgs/add.svg
+  static const String svgsAdd = "assets/svgs/add.svg";
+
   /// Assets for svgsArrowBack
   /// assets/svgs/arrow_back.svg
   static const String svgsArrowBack = "assets/svgs/arrow_back.svg";
@@ -61,10 +69,6 @@ class AppAssets {
   /// Assets for svgsArrowRight
   /// assets/svgs/arrow_right.svg
   static const String svgsArrowRight = "assets/svgs/arrow_right.svg";
-
-  /// Assets for svgsCart
-  /// assets/svgs/cart.svg
-  static const String svgsCart = "assets/svgs/cart.svg";
 
   /// Assets for svgsIconCart
   /// assets/svgs/icon_cart.svg
@@ -81,6 +85,10 @@ class AppAssets {
   /// Assets for svgsIconSerch
   /// assets/svgs/icon_serch.svg
   static const String svgsIconSerch = "assets/svgs/icon_serch.svg";
+
+  /// Assets for svgsMinus
+  /// assets/svgs/minus.svg
+  static const String svgsMinus = "assets/svgs/minus.svg";
 
   /// Assets for svgsOrderSuccess
   /// assets/svgs/order_success.svg

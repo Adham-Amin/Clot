@@ -6,6 +6,7 @@ import 'package:clot/features/auth/presentation/views/reset_password_view.dart';
 import 'package:clot/features/auth/presentation/views/verify_code_view.dart';
 import 'package:clot/features/brands/presentation/views/brands_view.dart';
 import 'package:clot/features/brands/presentation/views/products_brand_view.dart';
+import 'package:clot/features/cart/presentation/views/cart_view.dart';
 import 'package:clot/features/categories/domain/entities/category_entity.dart';
 import 'package:clot/features/categories/presentation/views/categories_view.dart';
 import 'package:clot/features/categories/presentation/views/products_category_view.dart';
@@ -39,6 +40,8 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
       return MaterialPageRoute(builder: (_) => const ResetPasswordView());
     case AppRoutes.changePasswordView:
       return MaterialPageRoute(builder: (_) => const ChangePasswordView());
+    case AppRoutes.cartView:
+      return MaterialPageRoute(builder: (_) => const CartView());
     case AppRoutes.productsView:
       return MaterialPageRoute(
         builder: (_) =>
