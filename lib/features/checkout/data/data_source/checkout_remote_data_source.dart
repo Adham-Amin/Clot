@@ -29,7 +29,7 @@ class CheckoutRemoteDataSourceImpl implements CheckoutRemoteDataSource {
       data: request.toJson(),
     );
     var cashResponse = CashResponse.fromJson(response);
-    await Prefs.setCartId(cashResponse.user ?? '');
+    Prefs.setCartId(cashResponse.user ?? '');
     return cashResponse;
   }
 

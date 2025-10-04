@@ -34,32 +34,35 @@ class CashResponse {
     this.v,
   });
 
-  factory CashResponse.fromJson(Map<String, dynamic> json) => CashResponse(
-    taxPrice: json['taxPrice'] as num?,
-    shippingPrice: json['shippingPrice'] as num?,
-    totalOrderPrice: json['totalOrderPrice'] as num?,
-    paymentMethodType: json['paymentMethodType'] as String?,
-    isPaid: json['isPaid'] as bool?,
-    isDelivered: json['isDelivered'] as bool?,
-    id: json['_id'] as String?,
-    user: json['user'] as String?,
-    cartItems: (json['cartItems'] as List<dynamic>?)
-        ?.map((e) => CartItemModel.fromJson(e as Map<String, dynamic>))
-        .toList(),
-    shippingAddress: json['shippingAddress'] == null
-        ? null
-        : ShippingAddress.fromJson(
-            json['shippingAddress'] as Map<String, dynamic>,
-          ),
-    createdAt: json['createdAt'] == null
-        ? null
-        : DateTime.parse(json['createdAt'] as String),
-    updatedAt: json['updatedAt'] == null
-        ? null
-        : DateTime.parse(json['updatedAt'] as String),
-    orderId: json['id'] as num?,
-    v: json['__v'] as num?,
-  );
+  factory CashResponse.fromJson(Map<String, dynamic> json) {
+    final data = json['data'] ?? {};
+    return CashResponse(
+      taxPrice: data['taxPrice'] as num?,
+      shippingPrice: data['shippingPrice'] as num?,
+      totalOrderPrice: data['totalOrderPrice'] as num?,
+      paymentMethodType: data['paymentMethodType'] as String?,
+      isPaid: data['isPaid'] as bool?,
+      isDelivered: data['isDelivered'] as bool?,
+      id: data['_id'] as String?,
+      user: data['user'] as String?,
+      cartItems: (data['cartItems'] as List<dynamic>?)
+          ?.map((e) => CartItemModel.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      shippingAddress: data['shippingAddress'] == null
+          ? null
+          : ShippingAddress.fromJson(
+              data['shippingAddress'] as Map<String, dynamic>,
+            ),
+      createdAt: data['createdAt'] == null
+          ? null
+          : DateTime.parse(data['createdAt'] as String),
+      updatedAt: data['updatedAt'] == null
+          ? null
+          : DateTime.parse(data['updatedAt'] as String),
+      orderId: data['id'] as num?,
+      v: data['__v'] as num?,
+    );
+  }
 
   Map<String, dynamic> toJson() => {
     'taxPrice': taxPrice,

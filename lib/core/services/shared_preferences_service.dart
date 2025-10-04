@@ -11,8 +11,8 @@ class Prefs {
     _prefs = await SharedPreferences.getInstance();
   }
 
-  static Future<void> setCartId(String value) async {
-    await _prefs?.setString('cartId', value);
+  static Future<void> setCartId(String cartId) async {
+    await _prefs?.setString('cartId', cartId);
   }
 
   static String? getCartId() => _prefs?.getString('cartId');

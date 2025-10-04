@@ -14,7 +14,10 @@ class OrdersView extends StatefulWidget {
 class _OrdersViewState extends State<OrdersView> {
   @override
   void initState() {
-    context.read<OrdersCubit>().getOrders(userId: Prefs.getCartId()!);
+    final cartId = Prefs.getCartId();
+    if (cartId != null) {
+      context.read<OrdersCubit>().getOrders(userId: cartId);
+    }
     super.initState();
   }
 

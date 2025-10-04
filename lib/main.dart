@@ -62,9 +62,7 @@ class Clot extends StatelessWidget {
                 CartCubit(cartRepo: getIt<CartRepo>())..getCart(),
           ),
           BlocProvider(
-            create: (context) =>
-                OrdersCubit(ordersRepo: getIt<OrdersRepo>())
-                  ..getOrders(userId: Prefs.getCartId()!),
+            create: (context) => OrdersCubit(ordersRepo: getIt<OrdersRepo>()),
           ),
         ],
         child: MaterialApp(

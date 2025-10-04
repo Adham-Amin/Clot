@@ -74,7 +74,7 @@ class _RegisterFormState extends State<RegisterForm> {
             controller: _phoneController,
             keyboardType: TextInputType.visiblePassword,
           ),
-          HeightBox(16),
+          HeightBox(32),
           BlocListener<AuthCubit, AuthState>(
             listener: (context, state) {
               if (state is AuthLoading) {
